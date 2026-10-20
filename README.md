@@ -141,9 +141,12 @@ system for arbitrary unmarked environments.
 ## Coordinate model
 
 The mapping uses a world frame with x east, y north, and z up; the ground plane
-is z=0. The body-to-camera rotation is supplied by the caller. Each detected
-corner is undistorted, transformed into a world ray, intersected with z=0, and
-combined with the other three corners to estimate the marker centre.
+is z=0. The body frame uses x forward, y left, and z up; the camera frame uses
+x right, y down, and z forward. Telemetry roll, pitch, and yaw are interpreted
+as `R_WB = Rz(yaw) @ Ry(pitch) @ Rx(roll)`, and the supplied
+`R_body_cam` gives `R_WC = R_WB @ R_body_cam`. Each detected corner is
+undistorted, transformed into a world ray, intersected with z=0, and combined
+with the other three corners to estimate the marker centre.
 
 ## Project structure
 

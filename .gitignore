@@ -11,3 +11,5 @@ env/
 *.jpeg
 *.png
 *.csv
+examples/sample_dataset/
+examples/sample_predictions.csv
